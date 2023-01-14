@@ -214,7 +214,6 @@ $(function () {
 			let nameToEditText = nameToEdit.text();
 			let ageToEditText = ageToEdit.text();
 			let salaryToEditText = salaryToEdit.text();
-
 			nameToEdit.replaceWith(`<input type="text" class="employee-name" value="${nameToEditText}" />`);
 			ageToEdit.replaceWith(`<input type="text" class="employee-age" value="${ageToEditText}" />`);
 			salaryToEdit.replaceWith(`<input type="text" class="employee-age" value="${salaryToEditText}" />`);
