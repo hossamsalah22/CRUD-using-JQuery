@@ -18,9 +18,9 @@ $(function () {
 		employees.forEach(function (empData) {
 			let newLi = $(`<li class="employee">
                                 <div class="employee-content">
-                                    <h1 class="employee-name">${empData.Name}</h1>
-                                    <h3 class="employee-age">${empData.Age}</h3>
-                                    <h3 class="employee-salary">${empData.Salary}</h3>
+                                    <span>Name:</span><h1 class="employee-name">${empData.Name}</h1>
+                                    <span>Age:</span><h3 class="employee-age">${empData.Age}</h3>
+                                    <span>Salary:</span><h3 class="employee-salary">${empData.Salary}</h3>
                                 </div>
                                 <button class="btn-edit" data-id="${empData.id}">Edit</button>
                                 <button class="btn-delete" data-id="${empData.id}">Delete</button>
@@ -146,7 +146,7 @@ $(function () {
 				display: "none",
 			});
 		}
-	}); // Add employee Button
+	}); // Add Employee Button Submit
 
 	$("#addEmployee").on("click", function () {
 		$(".form").css({
@@ -155,7 +155,7 @@ $(function () {
 		$(this).css({
 			display: "none",
 		});
-	}); // add employee button to show From
+	}); // add employee button to show Form
 
 	function deleteEmployee(id) {
 		// console.log(id);
@@ -167,7 +167,7 @@ $(function () {
 				loadData();
 			},
 		});
-	} // remove employee from JSON File
+	} // Remove employee from JSON File
 
 	$(".employees-list").on("click", ".btn-delete", function () {
 		empId = $(this).data("id");
