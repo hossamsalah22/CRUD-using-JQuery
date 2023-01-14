@@ -45,29 +45,97 @@ $(function () {
 		});
 	} // Add employee To the JSON File
 
+	$("#employeeName")
+		.on("blur", function () {
+			if ($("#employeeName").val() == "") {
+				$("#nameErr").text("Name Cannot Be Empty").css({
+					display: "block",
+				});
+			} else {
+				$("#nameErr").text("").css({
+					display: "none",
+				});
+			}
+		})
+		.on("keypress", function (event) {
+			if (!isNaN(event.key)) {
+				event.preventDefault();
+				$("#nameErr").text("Name Can have Only Chars").css({
+					display: "block",
+				});
+			} else {
+				$("#nameErr").text("").css({
+					display: "none",
+				});
+			}
+		}); // Name Validation
+
+	$("#employeeAge")
+		.on("blur", function () {
+			if ($("#employeeAge").val() == "") {
+				$("#ageErr").text("Age Cannot Be Empty").css({
+					display: "block",
+				});
+			} else {
+				if ($(this).val() < 20 || $(this).val() > 60) {
+					$("#ageErr").text("Age must be between 21 and 60").css({
+						display: "block",
+					});
+				} else {
+					$("#ageErr").text("").css({
+						display: "none",
+					});
+				}
+			}
+		})
+		.on("keypress", function (event) {
+			if (isNaN(event.key)) {
+				event.preventDefault();
+				$("#ageErr").text("Age can be Numbers Only").css({
+					display: "block",
+				});
+			} else {
+				$("#ageErr").text("").css({
+					display: "none",
+				});
+			}
+		}); // Age Validation
+
+	$("#employeeSalary")
+		.on("blur", function () {
+			if ($("#employeeSalary").val() == "") {
+				$("#salErr").text("Salary Cannot Be Empty").css({
+					display: "block",
+				});
+			} else {
+				$("#salErr").text("").css({
+					display: "none",
+				});
+			}
+		})
+		.on("keypress", function (event) {
+			if (isNaN(event.key)) {
+				event.preventDefault();
+				$("#salErr").text("Salary can be Numbers Only").css({
+					display: "block",
+				});
+			} else {
+				$("#salErr").text("").css({
+					display: "none",
+				});
+			}
+		}); // Salary Validation
+
 	$(".form").on("submit", function (e) {
 		e.preventDefault();
-		let empName;
-		let empAge;
-		let empSal;
-		$("#employeeName").focus(function () {
-			if (!isNaN($("#employeeName").val())) {
-				empName = "";
-			}
-		});
-		$("#employeeAge").focus(function () {
-			if (isNaN($("#employeeAge").val())) {
-				empAge = "";
-			}
-		});
-		$("#employeeSalary").focus(function () {
-			if (isNaN($("#employeeSalary").val())) {
-				empSal = "";
-			}
-		});
-		if (empName != "" && empAge != "" && empSal != "") {
-			console.log($("#employeeName").val(), $("#employeeAge").val(), $("#employeeSalary").val());
-			// addEmployee(empName, empAge, empSal);
+		if (
+			$("#employeeName").val() != "" &&
+			$("#employeeAge").val() != "" &&
+			$("#employeeSalary").val() != "" &&
+			$("#employeeAge").val() > 20 &&
+			$("#employeeAge").val() < 60
+		) {
+			addEmployee($("#employeeName").val(), $("#employeeAge").val(), $("#employeeSalary").val());
 			$("#employeeName").val("");
 			$("#employeeAge").val("");
 			$("#employeeSalary").val("");
