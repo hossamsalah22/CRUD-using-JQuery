@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CRUD Application using JQuery with JSON</title>
+		<link rel="stylesheet" href="css/crudStyle.css" />
+		<script src="js/jquery-3.5.1.js"></script>
+		<link rel="stylesheet" href="node_modules/jquery-confirm/dist/jquery-confirm.min.css" />
+		<script src="node_modules/jquery-confirm/dist/jquery-confirm.min.js"></script>
+		<script src="js/crud.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<form class="form">
+				<div class="form-row">
+					<label class="form-label" for="employeeName">Employee Name</label>
+					<input type="text" class="form-control" id="employeeName" required />
+					<!-- <span class="form-control">Please Enter Student Name</span> -->
+				</div>
+				<div class="form-row">
+					<label class="form-label" for="employeeAge">Employee Age</label>
+					<input type="text" class="form-control" id="employeeAge" required />
+				</div>
+				<div class="form-row">
+					<label class="form-label" for="employeeSalary">Employee Salary</label>
+					<input type="text" class="form-control" id="employeeSalary" required />
+				</div>
+				<div class="form-row">
+					<button type="submit" class="form-button">Add</button>
+				</div>
+			</form>
+			<div class="form-row">
+				<button type="submit" class="form-button" id="addEmployee">Add New Employee</button>
+			</div>
+			<ul class="employees-list"></ul>
+		</div>
+	</body>
+</html>
